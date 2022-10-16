@@ -14,7 +14,7 @@ export default function Home(props) {
       <Hero />
       {intro.map((intro) => (
         <APIs
-          key={intro.id}
+          id={intro.id}
           href={intro.url}
           method={intro.method}
           title={intro.title}

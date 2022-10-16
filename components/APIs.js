@@ -9,10 +9,10 @@ export default function APIs({
   example,
 }) {
   return (
-    <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8" key={id}>
+    <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
       <div className="flow-root mt-6 sm:mt-8">
         <div className="divide-y divide-gray--200 -my-9">
-          <div className="py-9">
+          <div className="py-9" key={id}>
             <div className="border rounded-md">
               <div className="flex justify-between bg-gray-100 p-4 rounded-md">
                 <h1 className="text-xl">{title}</h1>
