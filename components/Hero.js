@@ -1,3 +1,5 @@
+import CTA from "./CTA";
+
 export default function Hero() {
   return (
     <div className="overflow-x-hidden">
@@ -15,16 +17,7 @@ export default function Hero() {
               massa in enim luctus. Rutrum arcu.
             </p>
 
-            <div className="relative inline-flex mt-10 group">
-              <a
-                href="#"
-                title=""
-                className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                role="button"
-              >
-                Get access to 4,958 resources
-              </a>
-            </div>
+            <CTA />
           </div>
         </div>
       </section>
