@@ -5,6 +5,8 @@ export default async function handler(req, res) {
 
   if (req.method === "GET") {
     intro = await getIntroduction();
+  } else {
+    intro = { error: "Method not allowed" };
   }
 
   res.status(200).json(intro);
