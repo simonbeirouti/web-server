@@ -24,7 +24,7 @@ export default function APIs({
               <div className="text-left p-2">
                 <p className="text-gray-600">{description}</p>
               </div>
-              {method === "POST" || method === "UPDATE" ? (
+              {method === "POST" || method === "PUT" ? (
                 <div className="mt-3 bg-black p-3 rounded-md">
                   <pre className="text-white">{example}</pre>
                 </div>
