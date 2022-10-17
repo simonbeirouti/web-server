@@ -11,7 +11,11 @@ export default function Home(props) {
         title="Server | Home"
         description="This is the home page of the server."
       />
-      <Hero />
+      <Hero
+        introduction="Made by Developers, for Developers"
+        benefits="Quality resources shared by the community"
+        information="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula"
+      />
       {intro.map((intro) => (
         <APIs
           id={intro.id}
