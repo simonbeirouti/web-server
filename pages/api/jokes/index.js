@@ -1,4 +1,4 @@
-import { getJokes } from "../../helpers/getJokes";
+import { getJokes } from "../../../helpers/getJokes";
 
 export default async function handler(req, res) {
   let jokes;
