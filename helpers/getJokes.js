@@ -30,10 +30,10 @@ export async function deleteJokesByID(jokesID) {
 }
 
 // Update single joke by ID
-export async function updateJokesByID(jokesID, joke, author, user_id) {
+export async function updateJokesByID(jokesID, joke, user_id) {
   const { data, error } = await supabase
     .from("jokes")
-    .update({ joke: joke, author: author, user_id })
+    .update({ joke: joke, user_id })
     .eq("id", jokesID);
 
   if (error) {
@@ -44,10 +44,10 @@ export async function updateJokesByID(jokesID, joke, author, user_id) {
 }
 
 // Post single joke
-export async function postJoke(joke2, author2, user_id2) {
+export async function postJoke(joke, user_id) {
   const { data, error } = await supabase
     .from("jokes")
-    .insert([{ joke: joke2, author: author2, user_id: user_id2 }]);
+    .insert([{ joke: joke, user_id: user_id }]);
 
   if (error) {
     return { error: error.message };
