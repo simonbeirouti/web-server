@@ -1,13 +1,18 @@
-import { getIntroduction } from "../../helpers/getIntroduction";
+import { supabase } from "../../../utils/supabase";
 
-export default async function handler(req, res) {
-  let intro;
-
+export default async function apiIndex(req, res) {
   if (req.method === "GET") {
-    intro = await getIntroduction();
+    const { data: jokes, error } = await supabase
+      .from("introduction")
+      .select("id, title, method, description, url, example")
+      .order("id", { ascending: true });
+    if (error) {
+      res.status(400).json({ error: error.message });
+    }
+    if (jokes) {
+      res.status(200).json(jokes);
+    }
   } else {
-    intro = { error: "Method not allowed" };
+    res.status(405).json({ error: `Method ${req.method} not allowed` });
   }
-
-  res.status(200).json(intro);
 }
