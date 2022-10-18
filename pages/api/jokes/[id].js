@@ -4,12 +4,11 @@ import {
   updateJokesByID,
 } from "../../../helpers/getJokes";
 
-export default async function handler(req, res) {
+export default async function jokeByID(req, res) {
   const jokesID = req.query.id;
-
   const method = req.method;
-
   let jokeResult;
+
   switch (method) {
     case "GET":
       jokeResult = await getJokesByID(jokesID);
