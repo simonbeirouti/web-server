@@ -1,19 +1,5 @@
 import { supabase } from "../utils/supabase";
 
-// Get all jokes
-export async function getJokes() {
-  const { data, error } = await supabase
-    .from("jokes")
-    .select("id, joke, details(name)")
-    .order("id", { ascending: true });
-
-  if (error) {
-    return { error: error.message };
-  } else {
-    return data;
-  }
-}
-
 // Get single joke by ID
 export async function getJokesByID(jokesID) {
   const { data, error } = await supabase
