@@ -26,7 +26,7 @@ export default function APIs({
               </div>
               {method === "POST" || method === "PUT" ? (
                 <div className="mt-3 bg-black p-3 rounded-md">
-                  <pre className="text-white">{example}</pre>
+                  <pre className="text-white overflow-x-auto">{example}</pre>
                 </div>
               ) : null}
             </div>
