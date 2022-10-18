@@ -1,7 +1,6 @@
 import Hero from "../components/Hero";
 import MetaHead from "../components/MetaHead";
 import APIs from "../components/APIs";
-import { getIntroduction } from "../helpers/getIntroduction";
 
 export default function Home(props) {
   const { intro } = props;
@@ -31,7 +30,8 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  const intro = await getIntroduction();
+  const res = await fetch("http://localhost:3000/api");
+  const intro = await res.json();
   return {
     props: {
       intro,
