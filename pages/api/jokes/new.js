@@ -9,7 +9,7 @@ export default async function newJoke(req, res) {
     jokeResult = await postJoke(joke, author, user_id);
 
     try {
-      res.status(200).json({ ...jokeResult, message: `Joke created` });
+      res.status(200).json({ message: `Joke created` });
     } catch (error) {
       res.status(400).json({ message: `Make some changes to the request` });
     }
