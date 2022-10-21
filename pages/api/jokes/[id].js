@@ -15,17 +15,18 @@ export default async function jokeByID(req, res) {
       res.status(200).json(jokeResult);
       break;
     case "DELETE":
-      jokeResult = await deleteJokesByID(jokesID);
-      res
-        .status(200)
-        .json({ ...jokeResult, message: `Joke ${jokesID} deleted` });
+      await deleteJokesByID(jokesID);
+      res.status(200).json({ message: `Joke ${jokesID} deleted` });
       break;
-    case "PUT":
-      let { joke, author, user_id } = req.body;
-      jokeResult = await updateJokesByID(jokesID, joke, author, user_id);
-      res
-        .status(200)
-        .json({ ...jokeResult, message: `Joke with ID ${jokesID} updated` });
+    case "PATCH":
+      let { joke, user_id } = req.body;
+      await updateJokesByID(jokesID, joke, user_id);
+      res.status(200).json({
+        message: `Joke with ID ${jokesID} updated`,
+        id: jokesID,
+        joke: joke,
+        user_id: user_id,
+      });
       break;
     default:
       res.status(405).json({ error: `Method ${method} not allowed` });
