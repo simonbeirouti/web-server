@@ -1,15 +1,15 @@
 import { postJoke } from "../../../helpers/getJokes";
 
 export default async function newJoke(req, res) {
-  let jokeResult;
-
   if (req.method === "POST") {
-    let { joke, author, user_id } = req.body;
+    let { joke, user_id } = req.body;
 
-    jokeResult = await postJoke(joke, author, user_id);
+    await postJoke(joke, user_id);
 
     try {
-      res.status(200).json({ message: `Joke created` });
+      res
+        .status(200)
+        .json({ message: `Joke created`, joke: joke, user_id: user_id });
     } catch (error) {
       res.status(400).json({ message: `Make some changes to the request` });
     }
