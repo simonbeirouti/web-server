@@ -4,7 +4,7 @@ import { supabase } from "../utils/supabase";
 export async function getJokesByID(jokesID) {
   const { data, error } = await supabase
     .from("jokes")
-    .select("id, joke, details(name)")
+    .select("id, joke)")
     .eq("id", jokesID)
     .single();
 
